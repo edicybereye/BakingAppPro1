@@ -174,20 +174,6 @@ public class StepDetailFragment extends BaseFragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Timber.e("ONPAUSE STEP DETAIL FRAGMENT");
-        pauseVideoAndAudio();
-    }
-
-    private void pauseVideoAndAudio() {
-        if (player != null) {
-            currentPosition = player.getCurrentPosition();
-            player.stop();
-            player.seekTo(currentPosition);
-        }
-    }
 
     @Override
     public void onResume() {
