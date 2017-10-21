@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.infideap.stylishwidget.view.ATextView;
+import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
@@ -165,12 +166,33 @@ public class StepDetailFragment extends BaseFragment {
     }
 
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (player != null){
-            player.stop();
+        releasePlayer();
+    }
+
+    private void releasePlayer() {
+        if (player != null) {
             player.release();
+            player = null;
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (Util.SDK_INT <= 23) {
+            releasePlayer();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT > 23) {
+            releasePlayer();
         }
     }
 
