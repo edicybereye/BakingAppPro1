@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_xsmall"
+        >
+
+        <com.app.infideap.stylishwidget.view.ATextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_normal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/colorBlueGrey_50"
+            android:textColor="@color/colorBlack_1000"
+            android:textAppearance="@style/TextStyle.Medium"
+            android:text="test"/>
+    </FrameLayout>
+</layout>
